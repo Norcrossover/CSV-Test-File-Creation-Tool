@@ -1,12 +1,9 @@
 //import { columns, delimiter, lines } from "./getInput";
-
 // console.log(columns, delimiter, lines);
-
-//import fs from 'fs';
 const fs = require('fs')
-let columns = 5;
+let columns = 2;
 let delimiter = ';';
-let lines = 100;
+let lines = 10000;
 const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
 const charsLength = chars.length;
 
@@ -27,16 +24,15 @@ const create = (columns, delimiter, lines) => {
             // loop through each string a random amount
             for (let k = 0; k < strLen; k++) {
                 let val = chars[Math.floor(Math.random() * charsLength)];
-                // console.log(val);
-                // str.concat(alphabet[Math.random() % 25]);
                 str += val;
             }
-            // console.log(str);
-            // text.concat(str, delimiter);
-            text += `${str}${delimiter}`;
+            if ((j+1) === columns) {
+                text += `${str}`;
+            } else {
+                text += `${str}${delimiter}`;
+            }
         }
         text += '\n';
-        // text.concat('\n');
     }
     return text;
 }
@@ -46,7 +42,6 @@ const create = (columns, delimiter, lines) => {
 // data will then be writtinginto a file
 let data = create(columns, delimiter, lines);
 //console.log(`Data is:\n${data}`);
-
 fs.writeFile('CSV_Test_File.txt', data, (err) => {
     if (err) throw err;
 });
