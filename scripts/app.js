@@ -25,11 +25,9 @@ const create = (columns, delimiter, lines) => {
             let strLen = Math.random() % 15;
             // loop through each string a random amount
             for (let k = 0; k < strLen; k++) {
-                let val = Math.floor(Math.random() * );
-                console.log(val);
-                let letter = alphabet[val];
+                let val = chars[Math.floor(Math.random() * charsLength)];
                 // str.concat(alphabet[Math.random() % 25]);
-                str += letter;
+                str += val;
                 //console.log(letter);
             }
             // text.concat(str, delimiter);
