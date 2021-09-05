@@ -7,14 +7,7 @@ const fs = require('fs')
 let columns = 5;
 let delimiter = ';';
 let lines = 100;
-const alphabet = [
-    'a', 'b', 'c', 'd', 'e', 
-    'f', 'g', 'h', 'i', 'j',
-    'k', 'l', 'm', 'n', 'o', 
-    'p', 'q', 'r', 's', 't', 
-    'u', 'v', 'w', 'x', 'y', 
-    'z'
-];
+const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
 
 
 
@@ -31,11 +24,12 @@ const create = (columns, delimiter, lines) => {
             let strLen = Math.random() % 15;
             // loop through each string a random amount
             for (let k = 0; k < strLen; k++) {
-                let val = Math.random() % 24;
+                let val = 24 % Math.random();
+                console.log(val);
                 let letter = alphabet[val];
                 // str.concat(alphabet[Math.random() % 25]);
                 str += letter;
-                console.log(letter);
+                //console.log(letter);
             }
             // text.concat(str, delimiter);
             str += `$(str)$(delimiter)`;
