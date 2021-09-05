@@ -22,23 +22,26 @@ const alphabet = [
 let data =  '';
 const create = (columns, delimiter, lines) => {
     let text = '';
+    let str = '';
     // loop through each line
     for (let i = 0; i < lines; i++) {
-        let str = '';
         // loop through each column
         for (let j = 0; j < columns; j++) {
             str = '';
-            let strLen = Math.random() % 25;
+            let strLen = Math.random() % 15;
             // loop through each string a random amount
             for (let k = 0; k < strLen; k++) {
-                str.concat(alphabet[Math.random() % 25]);
-                // str += alphabet[Math.random() % 25];
+                let val = Math.random() % 24;
+                let letter = alphabet[val];
+                // str.concat(alphabet[Math.random() % 25]);
+                str += letter;
+                console.log(letter);
             }
-            str.concat(str + delimiter);
-            // str += str + delimiter;
+            // text.concat(str, delimiter);
+            str += `$(str)$(delimiter)`;
         }
         // text += str + '\n';
-        text.concat(str + '\n');
+        text.concat('\n');
     }
     return text;
 }
