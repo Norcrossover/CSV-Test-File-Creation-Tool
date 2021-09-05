@@ -8,7 +8,7 @@ let columns = 5;
 let delimiter = ';';
 let lines = 100;
 const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-const charsLength = chars.length();
+const charsLength = chars.length;
 
 
 
@@ -26,6 +26,7 @@ const create = (columns, delimiter, lines) => {
             // loop through each string a random amount
             for (let k = 0; k < strLen; k++) {
                 let val = chars[Math.floor(Math.random() * charsLength)];
+                console.log(val);
                 // str.concat(alphabet[Math.random() % 25]);
                 str += val;
                 //console.log(letter);
