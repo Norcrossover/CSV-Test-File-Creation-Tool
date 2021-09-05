@@ -23,11 +23,14 @@ const create = (columns, delimiter, lines) => {
             str = '';
             let strLen = Math.random() % 25;
             for (let k = 0; k < strLen; k++) {
-                str.concat(alphabet[Math.random() % 25]);
+                //str.concat(alphabet[Math.random() % 25]);\
+                str += alphabet[Math.random() % 25];
             }
-            str.concat(str + delimiter);
+            //str.concat(str + delimiter);
+            str += str + delimeter;
         }
-        text.concat(str + '\n');
+        text += str + '\n';
+        // text.concat(str + '\n');
     }
     return text;
 }
