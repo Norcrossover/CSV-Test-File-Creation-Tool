@@ -13,7 +13,6 @@ const charsLength = chars.length;
 
 
 // this function will create the csv file into a string 
-let data =  '';
 const create = (columns, delimiter, lines) => {
     let text = '';
     let str = '';
@@ -22,20 +21,22 @@ const create = (columns, delimiter, lines) => {
         // loop through each column
         for (let j = 0; j < columns; j++) {
             str = '';
-            let strLen = Math.random() % 15;
+            // the actual max length will be plus 10 of value typed here
+            let maxLength = 15;
+            let strLen = Math.floor(Math.random() * maxLength) + 10;
             // loop through each string a random amount
             for (let k = 0; k < strLen; k++) {
                 let val = chars[Math.floor(Math.random() * charsLength)];
-                console.log(val);
+                // console.log(val);
                 // str.concat(alphabet[Math.random() % 25]);
                 str += val;
-                //console.log(letter);
             }
+            // console.log(str);
             // text.concat(str, delimiter);
-            str += `$(str)$(delimiter)`;
+            text += `${str}${delimiter}`;
         }
-        // text += str + '\n';
-        text.concat('\n');
+        text += '\n';
+        // text.concat('\n');
     }
     return text;
 }
@@ -43,14 +44,16 @@ const create = (columns, delimiter, lines) => {
 
 
 // data will then be writtinginto a file
-data = create(columns, delimiter, lines);
-console.log(data);
+let data = create(columns, delimiter, lines);
+//console.log(`Data is:\n${data}`);
+
 fs.writeFile('CSV_Test_File.txt', data, (err) => {
     if (err) throw err;
 });
 
 
 
+/*
 // then the download function will allow for the file to be downloaded 
 function download(filename, text) {
     var element = document.createElement('a');
@@ -66,7 +69,7 @@ function download(filename, text) {
 }
 
 
-/*
+
 // Put the data into a variable to be outputted into html
 window.onload = () => {
     let len = data.length;
