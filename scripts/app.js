@@ -62,8 +62,16 @@ function download(filename, text) {
     element.click();
   
     document.body.removeChild(element);
-  }
-  
-  // Start file download.
-  download("CSV_Test_File.txt", data);
-  
+}
+
+// Start file download.
+download("CSV_Test_File.txt", data);
+export { data };
+
+
+
+// Put the data into a variable to be outputted into html
+window.onload = () => {
+    let len = data.length;
+    document.getElementById(data).innerHTML = len;
+} 
