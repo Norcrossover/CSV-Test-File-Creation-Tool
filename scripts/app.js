@@ -1,11 +1,12 @@
-// import { columns, delimiter, lines } from "./getInput"
+//import { columns, delimiter, lines } from "./getInput";
+
 // console.log(columns, delimiter, lines);
 
 //import fs from 'fs';
 const fs = require('fs')
 let columns = 5;
 let delimiter = ';';
-let lines = 1000;
+let lines = 100;
 const alphabet = [
     'a', 'b', 'c', 'd', 'e', 
     'f', 'g', 'h', 'i', 'j',
@@ -21,20 +22,23 @@ const alphabet = [
 let data =  '';
 const create = (columns, delimiter, lines) => {
     let text = '';
+    // loop through each line
     for (let i = 0; i < lines; i++) {
         let str = '';
+        // loop through each column
         for (let j = 0; j < columns; j++) {
             str = '';
             let strLen = Math.random() % 25;
+            // loop through each string a random amount
             for (let k = 0; k < strLen; k++) {
-                //str.concat(alphabet[Math.random() % 25]);\
-                str += alphabet[Math.random() % 25];
+                str.concat(alphabet[Math.random() % 25]);
+                // str += alphabet[Math.random() % 25];
             }
-            //str.concat(str + delimiter);
-            str += str + delimeter;
+            str.concat(str + delimiter);
+            // str += str + delimiter;
         }
-        text += str + '\n';
-        // text.concat(str + '\n');
+        // text += str + '\n';
+        text.concat(str + '\n');
     }
     return text;
 }
@@ -64,14 +68,17 @@ function download(filename, text) {
     document.body.removeChild(element);
 }
 
-// Start file download.
-download("CSV_Test_File.txt", data);
-export { data };
 
-
-
+/*
 // Put the data into a variable to be outputted into html
 window.onload = () => {
     let len = data.length;
     document.getElementById(data).innerHTML = len;
 } 
+
+
+
+// Start file download.
+download("CSV_Test_File.txt", data);
+//export { data };
+*/
