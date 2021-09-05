@@ -7,7 +7,8 @@ const fs = require('fs')
 let columns = 5;
 let delimiter = ';';
 let lines = 100;
-const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+const charsLength = chars.length();
 
 
 
@@ -24,7 +25,7 @@ const create = (columns, delimiter, lines) => {
             let strLen = Math.random() % 15;
             // loop through each string a random amount
             for (let k = 0; k < strLen; k++) {
-                let val = 24 % Math.random();
+                let val = Math.floor(Math.random() * );
                 console.log(val);
                 let letter = alphabet[val];
                 // str.concat(alphabet[Math.random() % 25]);
