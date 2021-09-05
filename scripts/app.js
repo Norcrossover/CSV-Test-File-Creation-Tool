@@ -14,6 +14,10 @@ const alphabet = [
     'u', 'v', 'w', 'x', 'y', 
     'z'
 ];
+
+
+
+// this function will create the csv file into a string 
 let data =  '';
 const create = (columns, delimiter, lines) => {
     let text = '';
@@ -34,8 +38,32 @@ const create = (columns, delimiter, lines) => {
     }
     return text;
 }
+
+
+
+// data will then be writtinginto a file
 data = create(columns, delimiter, lines);
 console.log(data);
 fs.writeFile('CSV_Test_File.txt', data, (err) => {
     if (err) throw err;
 });
+
+
+
+// then the download function will allow for the file to be downloaded 
+function download(filename, text) {
+    var element = document.createElement('a');
+    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+    element.setAttribute('download', filename);
+  
+    element.style.display = 'none';
+    document.body.appendChild(element);
+  
+    element.click();
+  
+    document.body.removeChild(element);
+  }
+  
+  // Start file download.
+  download("CSV_Test_File.txt", data);
+  
