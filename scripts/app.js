@@ -9,19 +9,18 @@ const charsLength = chars.length;
 
 
 
-// this function will create the csv file into a string 
+// ============== this function will create the csv file into a string ============
 const create = (columns, delimiter, lines) => {
     let text = '';
     let str = '';
-    // loop through each line
+    // loops through each line
     for (let i = 0; i < lines; i++) {
-        // loop through each column
+        // loops through each column
         for (let j = 0; j < columns; j++) {
             str = '';
-            // the actual max length will be plus 10 of value typed here
             let maxLength = 15;
             let strLen = Math.floor(Math.random() * maxLength) + 10;
-            // loop through each string a random amount
+            // loops through each string
             for (let k = 0; k < strLen; k++) {
                 let val = chars[Math.floor(Math.random() * charsLength)];
                 str += val;
@@ -39,16 +38,16 @@ const create = (columns, delimiter, lines) => {
 
 
 
-// data will then be writtinginto a file
+// ==================== data will then be written into a file ================
 let data = create(columns, delimiter, lines);
 //console.log(`Data is:\n${data}`);
-fs.writeFile('CSV_Test_File.txt', data, (err) => {
-    if (err) throw err;
-});
+// fs.writeFile('CSV_Test_File.txt', data, (err) => {
+//     if (err) throw err;
+// });
 
 
 
-/*
+
 // then the download function will allow for the file to be downloaded 
 function download(filename, text) {
     var element = document.createElement('a');
@@ -76,4 +75,3 @@ window.onload = () => {
 // Start file download.
 download("CSV_Test_File.txt", data);
 //export { data };
-*/
