@@ -11,7 +11,14 @@
 <body>
     <div>
         <!-- This will be where the buttons go for selecting options for the CSV file -->
-        
+        <!-- <input type="button" value="First Column Header?"> -->
+        <input name="Columns" type="text" maxlength="512" id="columns" class="searchField"/>
+        <input name="Delimiter" type="text" maxlength="512" id="lines" class="searchField"/>
+        <input name="Lines of Text" type="text" maxlength="512" id="delimiter" class="searchField"/>
+    </div>
+    <div>
+        <textarea id="text-val" rows="4">data</textarea><br/>
+        <input type="button" id="dwn-btn" value="Download the CSV text file"/>
     </div>
 </body>
 </html>
