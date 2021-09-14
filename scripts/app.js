@@ -1,6 +1,6 @@
 //import { columns, delimiter, lines } from "./getInput";
 // console.log(columns, delimiter, lines);
-import * as "./getInput.js";
+import { columns, delimiter, lines } from "./getInput.js";
 const fs = require('fs')
 let columns = 2;
 let delimiter = ';';
