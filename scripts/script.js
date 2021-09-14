@@ -1,10 +1,17 @@
 //import { columns, delimiter, lines } from "./getInput";
 // console.log(columns, delimiter, lines);
-import { columns, delimiter, lines } from "./getInput.js";
-const fs = require('fs')
-let columns = 2;
-let delimiter = ';';
-let lines = 10000;
+// import { columns, delimiter, lines } from "./getInput.js";
+// const fs = require('fs')
+// columns = 2;
+// delimiter = ';';
+// lines = 10000;
+
+let columns = prompt("Enter the number of columns you want: ");
+let lines = prompt("Enter the number of lines you want: ");
+let delimiter = prompt("Enter the delimiter you want to use: ");
+// console.log(`columns: ${columns}`);
+// console.log(`delimiter: ${delimiter}`);
+// console.log(`lines: ${lines}`);
 const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
 const charsLength = chars.length;
 
