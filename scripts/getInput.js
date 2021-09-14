@@ -1,6 +1,7 @@
 // Have options to bring in input from buttons here:
-export let columns = document.getElementById("Columns");
-export let delimiter = document.getElementById("Delimiter");
-export let lines = document.getElementById("Lines of Text");
-
-//export { columns, delimiter, lines };
+let columns = document.getElementById("Columns");
+let delimiter = document.getElementById("Delimiter");
+let lines = document.getElementById("Lines of Text");
+console.log(`columns: ${columns}`);
+console.log(`delimiter: ${delimiter}`);
+export { columns, delimiter, lines };
