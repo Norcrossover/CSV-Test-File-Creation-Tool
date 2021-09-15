@@ -5,9 +5,9 @@
 // columns = 2;
 // delimiter = ';';
 // lines = 10000;
-let columns = document.getElementById("columns");
-let delimiter = document.getElementById("delimiter");
-let lines = document.getElementById("lines");
+let columns = document.getElementById("columns").value;
+let delimiter = document.getElementById("delimiter").value;
+let lines = document.getElementById("lines").value;
 console.log(`columns: ${columns}`);
 console.log(`delimiter: ${delimiter}`);
 console.log(`lines: ${lines}`);
