@@ -5,10 +5,15 @@
 // columns = 2;
 // delimiter = ';';
 // lines = 10000;
-
-let columns = prompt("Enter the number of columns you want: ");
-let lines = prompt("Enter the number of lines you want: ");
-let delimiter = prompt("Enter the delimiter you want to use: ");
+let columns = document.getElementById("columns");
+let delimiter = document.getElementById("delimiter");
+let lines = document.getElementById("lines");
+console.log(`columns: ${columns}`);
+console.log(`delimiter: ${delimiter}`);
+console.log(`lines: ${lines}`);
+// let columns = prompt("Enter the number of columns you want: ");
+// let lines = prompt("Enter the number of lines you want: ");
+// let delimiter = prompt("Enter the delimiter you want to use: ");
 // console.log(`columns: ${columns}`);
 // console.log(`delimiter: ${delimiter}`);
 // console.log(`lines: ${lines}`);
