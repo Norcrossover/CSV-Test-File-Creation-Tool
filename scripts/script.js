@@ -3,20 +3,30 @@
 // import { columns, delimiter, lines } from "./getInput.js";
 // const fs = require('fs')
 
-let columns = document.getElementById("columns").value;
-let delimiter = document.getElementById("delimiter").value;
-let lines = document.getElementById("lines").value;
-console.log(`columns: ${columns}`);
-console.log(`delimiter: ${delimiter}`);
-console.log(`lines: ${lines}`);
+// let columns = document.getElementById("columns").value;
+// let delimiter = document.getElementById("delimiter").value;
+// let lines = document.getElementById("lines").value;
+// console.log(`columns: ${columns}`);
+// console.log(`delimiter: ${delimiter}`);
+// console.log(`lines: ${lines}`);
 // let columns = prompt("Enter the number of columns you want: ");
 // let lines = prompt("Enter the number of lines you want: ");
 // let delimiter = prompt("Enter the delimiter you want to use: ");
-console.log(`columns: ${columns}`);
-console.log(`delimiter: ${delimiter}`);
-console.log(`lines: ${lines}`);
 const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
 const charsLength = chars.length;
+
+
+
+
+const formdata = () => {
+    let columns = document.getElementById("columns").value;
+    let lines = document.getElementById("lines").value;
+    let delimiter = document.getElementById("delimter").value;
+    document.writeln("<h1>Confirmation Page</h1><br>");
+    document.writeln("Thank you for completing this form.<br><br>");
+    // document.writeln("The first name you entered is " + firstname1 + "<br>");
+    // document.writeln("The last name you entered is " + lastname1);
+}
 
 
 
@@ -49,7 +59,7 @@ const create = (columns, delimiter, lines) => {
 
 
 
-// ==================== data will then be written into a file ================
+// // ==================== data will then be written into a file ================
 let data = create(columns, delimiter, lines);
 //console.log(`Data is:\n${data}`);
 // fs.writeFile('CSV_Test_File.txt', data, (err) => {
@@ -60,29 +70,20 @@ let data = create(columns, delimiter, lines);
 
 
 // then the download function will allow for the file to be downloaded 
-const download = (filename, text) => {
-    var element = document.createElement('a');
-    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
-    element.setAttribute('download', filename);
+// const download = (filename, text) => {
+//     var element = document.createElement('a');
+//     element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+//     element.setAttribute('download', filename);
   
-    element.style.display = 'none';
-    document.body.appendChild(element);
+//     element.style.display = 'none';
+//     document.body.appendChild(element);
   
-    element.click();
+//     element.click();
   
-    document.body.removeChild(element);
-}
+//     document.body.removeChild(element);
+// }
 
 
-
-const formdata = () => {
-    var firstname1= document.getElementById("firstname").value;
-    var lastname1= document.getElementById("lastname").value;
-    document.writeln("<h1>Confirmation Page</h1><br>");
-    document.writeln("Thank you for completing this form.<br><br>");
-    document.writeln("The first name you entered is " + firstname + "<br>");
-    document.writeln("The last name you entered is " + lastname);
-    }
 // Put the data into a variable to be outputted into html
 window.onload = () => {
     let len = data.length;
@@ -92,5 +93,5 @@ window.onload = () => {
 
 
 // Start file download.
-download("CSV_Test_File.txt", data);
+// download("CSV_Test_File.txt", data);
 //export { data };
