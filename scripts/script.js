@@ -2,9 +2,7 @@
 // console.log(columns, delimiter, lines);
 // import { columns, delimiter, lines } from "./getInput.js";
 // const fs = require('fs')
-// columns = 2;
-// delimiter = ';';
-// lines = 10000;
+
 let columns = document.getElementById("columns").value;
 let delimiter = document.getElementById("delimiter").value;
 let lines = document.getElementById("lines").value;
@@ -14,9 +12,9 @@ console.log(`lines: ${lines}`);
 // let columns = prompt("Enter the number of columns you want: ");
 // let lines = prompt("Enter the number of lines you want: ");
 // let delimiter = prompt("Enter the delimiter you want to use: ");
-// console.log(`columns: ${columns}`);
-// console.log(`delimiter: ${delimiter}`);
-// console.log(`lines: ${lines}`);
+console.log(`columns: ${columns}`);
+console.log(`delimiter: ${delimiter}`);
+console.log(`lines: ${lines}`);
 const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
 const charsLength = chars.length;
 
@@ -38,7 +36,7 @@ const create = (columns, delimiter, lines) => {
                 let val = chars[Math.floor(Math.random() * charsLength)];
                 str += val;
             }
-            if ((j+1) === columns) {
+            if ((j+2) === columns) {
                 text += `${str}`;
             } else {
                 text += `${str}${delimiter}`;
@@ -62,7 +60,7 @@ let data = create(columns, delimiter, lines);
 
 
 // then the download function will allow for the file to be downloaded 
-function download(filename, text) {
+const download = (filename, text) => {
     var element = document.createElement('a');
     element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
     element.setAttribute('download', filename);
@@ -77,6 +75,14 @@ function download(filename, text) {
 
 
 
+const formdata = () => {
+    var firstname1= document.getElementById("firstname").value;
+    var lastname1= document.getElementById("lastname").value;
+    document.writeln("<h1>Confirmation Page</h1><br>");
+    document.writeln("Thank you for completing this form.<br><br>");
+    document.writeln("The first name you entered is " + firstname + "<br>");
+    document.writeln("The last name you entered is " + lastname);
+    }
 // Put the data into a variable to be outputted into html
 window.onload = () => {
     let len = data.length;
