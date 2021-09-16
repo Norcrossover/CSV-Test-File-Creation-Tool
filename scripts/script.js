@@ -18,7 +18,7 @@ const charsLength = chars.length;
 
 
 
-const formdata = () => {
+let formdata = () => {
     let columns = document.getElementById("columns").value;
     let lines = document.getElementById("lines").value;
     let delimiter = document.getElementById("delimter").value;
@@ -60,6 +60,7 @@ const create = (columns, delimiter, lines) => {
 
 
 // // ==================== data will then be written into a file ================
+formdata();
 let data = create(columns, delimiter, lines);
 //console.log(`Data is:\n${data}`);
 // fs.writeFile('CSV_Test_File.txt', data, (err) => {
@@ -89,7 +90,6 @@ window.onload = () => {
     let len = data.length;
     document.getElementById(data).innerHTML = len;
 } 
-
 
 
 // Start file download.
