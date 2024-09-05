@@ -1,0 +1,33 @@
+/* form.css */
+/* Styles for the input form for the user */
+form {
+  width: 400px;
+  height: 150px;
+  display: flex;
+  padding-bottom: 20px;
+  margin: 20px;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+}
+
+label {
+  margin: 5px;
+}
+
+input[type="number"],
+input[type="text"] {
+  margin: 5px;
+  border-radius: 5%;
+  margin-left: auto;
+  /* border: transparent; */
+}
+
+input[type="submit"] {
+  margin-top: 10px;
+  width: 100px;
+}
