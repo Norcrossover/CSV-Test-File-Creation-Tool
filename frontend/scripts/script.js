@@ -1,16 +1,12 @@
-import fs from "fs";
 const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-
+const charsLength = chars.length;
 const fakerUrl = "https://cdn.jsdelivr.net/npm/@faker-js/faker/+esm";
 
 const getFormData = () => {
   const columns = document.getElementById("columns").value;
-  const lines = document.getElementById("lines").value;
+  const rows = document.getElementById("rows").value;
   const delimiter = document.getElementById("delimiter").value;
-  document.writeln("<h1>Confirmation Page</h1><br>");
-  document.writeln("Thank you for completing this form.<br><br>");
-  // document.writeln("The first name you entered is " + firstname1 + "<br>");
-  // document.writeln("The last name you entered is " + lastname1);
+  return { columns, rows, delimiter };
 };
 
 const appendNewColumn = (currCol, newColStr, del, totalNumCols) => {
@@ -28,11 +24,11 @@ const createNewStrOfChars = () => {
   return newColStr;
 };
 
-const createCsvFileString = (columns, delimiter, lines) => {
+const createCsvFileString = (columns, delimiter, rows) => {
   let lineOfText = "";
   let newColStr = "";
 
-  for (let i = 0; i < lines; i++) {
+  for (let i = 0; i < rows; i++) {
     // add new logic for varying data types through APIs
     // - unique names
     // - phone numbers
@@ -46,41 +42,56 @@ const createCsvFileString = (columns, delimiter, lines) => {
   return lineOfText;
 };
 
-const convertCsvFileStringToFile = () => {
-  //console.log(`Data is:\n${data}`);
-  // fs.writeFile('CSV_Test_File.txt', data, (err) => {
-  //     if (err) throw err;
-  // });
+const convertCsvFileStringToFile = () => {};
+
+const createTableHeader = (tableHeader, columns) => {
+  for (let i = 0; i < columns; i++) {
+    const th = document.createElement("th");
+    th.textContent = `Column ${i + 1}`;
+    tableHeader.appendChild(th);
+  }
 };
 
-// // ==================== data will then be written into a file ================
-// add a submit button that will activate this
-document.getElementById("myButton").addEventListener("click", function () {
-  alert("Button clicked!");
-  getFormData();
-  let data = createCsvFileString(columns, delimiter, lines);
-});
-
-// then the download function will allow for the file to be downloaded
-// const download = (filename, text) => {
-//     var element = document.createElement('a');
-//     element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
-//     element.setAttribute('download', filename);
-
-//     element.style.display = 'none';
-//     document.body.appendChild(element);
-
-//     element.click();
-
-//     document.body.removeChild(element);
-// }
-
-// Put the data into a variable to be outputted into html
-window.onload = () => {
-  let len = data.length;
-  document.getElementById(data).innerHTML = len;
+const createTableRows = (tableBody, rows, delimiter) => {
+  rows.forEach((row) => {
+    const tr = document.createElement("tr");
+    const cells = row.split(delimiter);
+    cells.forEach((cell) => {
+      const td = document.createElement("td");
+      td.textContent = cell;
+      tr.appendChild(td);
+    });
+    tableBody.appendChild(tr);
+  });
 };
 
-// Start file download.
-// download("CSV_Test_File.txt", data);
-//export { data };
+const populateTable = (data, columns, delimiter) => {
+  const tableHeader = document.getElementById("table-header");
+  const tableBody = document.getElementById("table-body");
+  tableHeader.innerHTML = "";
+  tableBody.innerHTML = "";
+  createTableHeader(tableHeader, columns);
+  createTableRows(tableBody, data.trim().split("\n"), delimiter);
+};
+
+// ==================== data will then be written into a file ================
+
+document
+  .querySelector("input[type='submit']")
+  .addEventListener("click", function (event) {
+    event.preventDefault();
+    const { columns, delimiter, rows } = getFormData();
+    const data = createCsvFileString(columns, delimiter, rows);
+    console.log(data);
+    populateTable(data, columns, delimiter);
+  });
+
+const createDefaultTable = () => {
+  const defaultCols = document.getElementById("columns").value;
+  const defaultRows = document.getElementById("rows").value;
+  const defaultDel = document.getElementById("delimiter").value;
+  const defaultData = createCsvFileString(defaultCols, defaultRows, defaultDel);
+  populateTable(defaultData, defaultCols, defaultDel);
+};
+
+window.onload = createDefaultTable();

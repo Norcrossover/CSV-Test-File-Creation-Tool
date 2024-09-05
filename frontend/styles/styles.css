@@ -34,6 +34,7 @@ hr {
 }
 
 textarea {
+  margin: 20px;
   font-size: 10px;
   font-family: "Poppins", sans-serif;
   background-color: whitesmoke;

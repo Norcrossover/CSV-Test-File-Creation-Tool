@@ -7,7 +7,6 @@
     <title>CSV-Test-File-Creation-Tool</title>
     <link href="./styles/styles.css" rel="stylesheet" />
     <link href="./styles/form.css" rel="stylesheet" />
-    <link href="./styles/output.css" rel="stylesheet" />
     <script defer src="./scripts/script.js"></script>
   </head>
   <body class="page-container">
@@ -16,15 +15,6 @@
       <h2 class="page-header-subtitle">A CSV test file creation tool</h2>
     </div>
     <hr />
-    <!-- This will be where the buttons go for selecting options for the CSV file -->
-    <!-- <input type="button" value="First Column Header?"> -->
-    <!-- <input name="Columns" type="text" maxlength="512" id="columns">Number Of Columns</input>
-        <input name="Delimiter" type="text" maxlength="512" id="lines">Number Of Lines</input>
-        <input name="Lines of Text" type="text" maxlength="512" id="delimiter">Delimiter</input> -->
-
-    <!-- <input name="Columns" type="text" maxlength="512" id="columns"></input>
-        <input name="Delimiter" type="text" maxlength="512" id="lines"></input>
-        <input name="Lines of Text" type="text" maxlength="512" id="delimiter"></input>    -->
 
     <div>
       <h2 class="formatted-header">
@@ -34,45 +24,38 @@
     </div>
     <hr />
     <form>
-      <!-- Enter your First Name: <input type="text" id="firstname"/><br><br>
-            Enter your Last Name: <input type="text" id="lastname"/><br><br> -->
       <div class="input-container">
         <label>Number of columns:</label>
-        <input type="number" id="columns" placeholder="5" />
+        <input type="number" id="columns" value="5" max="25" />
         <br /><br />
       </div>
       <div class="input-container">
         <label>Number of rows:</label>
-        <input type="number" id="lines" placeholder="5" />
+        <input type="number" id="rows" value="5" max="1000" />
         <br />
         <br />
       </div>
       <div class="input-container">
         <label>Delimiter:</label>
-        <input type="text" id="delimiter" placeholder=";" />
+        <input type="text" id="delimiter" value=";" />
         <br />
         <br />
       </div>
-      <input
-        type="submit"
-        value="Submit"
-        onclick="formdata()"
-        class="stylized-button"
-      />
+      <input type="submit" value="Submit" class="stylized-button" />
       <br />
     </form>
     <hr />
     <div>
       <!-- Success message will go here -->
     </div>
-    <div>
-      <textarea
-        id="text-val"
-        rows="4"
-        placeholder="Your data will be generated here"
-      ></textarea>
-      <br />
-      <!-- <input type="button" id="dwn-btn" value="Download the CSV text file"/> -->
-    </div>
+
+    <table id="output-table">
+      <thead>
+        <tr id="table-header"></tr>
+      </thead>
+      <tbody id="table-body"></tbody>
+    </table>
+    <br />
+    <!-- <input type="button" id="dwn-btn" value="Download the CSV text file"/> -->
   </body>
 </html>
