@@ -11,8 +11,10 @@
     <script defer src="./scripts/script.js"></script>
   </head>
   <body class="page-container">
-    <h1>Testify</h1>
-    <h2>A CSV test file creation tool</h2>
+    <div class="page-header">
+      <h1>Testify</h1>
+      <h2 class="page-header-subtitle">A CSV test file creation tool</h2>
+    </div>
     <hr />
     <!-- This will be where the buttons go for selecting options for the CSV file -->
     <!-- <input type="button" value="First Column Header?"> -->
@@ -25,12 +27,13 @@
         <input name="Lines of Text" type="text" maxlength="512" id="delimiter"></input>    -->
 
     <div>
-      <h2>Create an account? (Save your CSV file formats)</h2>
+      <h2 class="formatted-header">
+        Create an account? (Save your CSV file formats)
+      </h2>
       <button class="stylized-button login-button">Login/Register</button>
     </div>
     <hr />
     <form>
-      <br />
       <!-- Enter your First Name: <input type="text" id="firstname"/><br><br>
             Enter your Last Name: <input type="text" id="lastname"/><br><br> -->
       <div class="input-container">
