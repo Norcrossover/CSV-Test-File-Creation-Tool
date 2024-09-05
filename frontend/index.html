@@ -13,6 +13,7 @@
   <body class="page-container">
     <h1>Testify</h1>
     <h2>A CSV test file creation tool</h2>
+    <hr />
     <!-- This will be where the buttons go for selecting options for the CSV file -->
     <!-- <input type="button" value="First Column Header?"> -->
     <!-- <input name="Columns" type="text" maxlength="512" id="columns">Number Of Columns</input>
@@ -23,6 +24,11 @@
         <input name="Delimiter" type="text" maxlength="512" id="lines"></input>
         <input name="Lines of Text" type="text" maxlength="512" id="delimiter"></input>    -->
 
+    <div>
+      <h2>Create an account? (Save your CSV file formats)</h2>
+      <button class="stylized-button login-button">Login/Register</button>
+    </div>
+    <hr />
     <form>
       <br />
       <!-- Enter your First Name: <input type="text" id="firstname"/><br><br>
@@ -35,16 +41,24 @@
       <div class="input-container">
         <label>Number of rows:</label>
         <input type="number" id="lines" placeholder="5" />
-        <br /><br />
+        <br />
+        <br />
       </div>
       <div class="input-container">
         <label>Delimiter:</label>
         <input type="text" id="delimiter" placeholder=";" />
-        <br /><br />
+        <br />
+        <br />
       </div>
-      <input type="submit" value="Submit" onclick="formdata()" /><br />
-      <!-- <input type="submit" value="submit" onclick="formdata()"/><br> -->
+      <input
+        type="submit"
+        value="Submit"
+        onclick="formdata()"
+        class="stylized-button"
+      />
+      <br />
     </form>
+    <hr />
     <div>
       <!-- Success message will go here -->
     </div>
@@ -54,7 +68,7 @@
         rows="4"
         placeholder="Your data will be generated here"
       ></textarea>
-      ><br />
+      <br />
       <!-- <input type="button" id="dwn-btn" value="Download the CSV text file"/> -->
     </div>
   </body>
